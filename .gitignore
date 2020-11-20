@@ -133,3 +133,7 @@ dmypy.json
 /.ipynb_checkpoints
 /training-data
 /envs
+server.log
+/animal-recognition-checkpoint
+/serve
+animal-recognition.h5
