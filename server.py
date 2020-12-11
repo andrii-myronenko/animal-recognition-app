@@ -2,7 +2,6 @@
 import base64
 import json
 from io import BytesIO
-
 import numpy as np  
 import cv2 
 import requests
@@ -10,8 +9,6 @@ from flask import Flask, request, jsonify
 from tensorflow.keras.applications import inception_v3
 from tensorflow.keras.preprocessing import image
 from flask_cors import CORS, cross_origin
-
-# from flask_cors import CORS
 
 # run nohup to start tensorflow model server
 
