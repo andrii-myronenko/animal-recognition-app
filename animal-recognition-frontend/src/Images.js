@@ -13,6 +13,7 @@ export default props =>
       </div>
       <div className='image-container'>
         <img 
+          className='guessed-image'
           src={image.url} 
           alt='' 
           onError={() => props.onError(image.public_id)}

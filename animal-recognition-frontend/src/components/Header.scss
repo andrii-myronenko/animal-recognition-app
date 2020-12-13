@@ -1,0 +1,18 @@
+.header {
+    height: 90px;
+    padding: 0 200px;
+    background-color: #3f9ae6;
+}
+
+@media only screen   
+and (max-width : 1440px)  {
+    .header {
+        padding: 0 0;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.logo {
+    height: 100%;
+}

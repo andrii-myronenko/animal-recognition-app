@@ -5,17 +5,24 @@ from io import BytesIO
 import numpy as np  
 import cv2 
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from tensorflow.keras.applications import inception_v3
 from tensorflow.keras.preprocessing import image
 from flask_cors import CORS, cross_origin
+import os
 
-# run nohup to start tensorflow model server
+app = Flask(__name__, static_folder='animal-recognition-frontend/build')
 
-#saved_model_cli show --dir /home/andrii/VSCodeWorkspace/animal-recognition-app/serve/1 --all
-#nohup tensorflow_model_server --rest_api_port=8501 --model_name=saved_model --model_base_path="/home/andrii/VSCodeWorkspace/animal-recognition-app/serve/" >server.log 2>&1
+# Serve React App
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
-app = Flask(__name__)
+
 
 def centering_image(img):
     size = [256,256]
@@ -29,10 +36,8 @@ def centering_image(img):
 
     return resized
 
-# Uncomment this line if you are making a Cross domain request
 CORS(app)
 
-# Testing URL
 @app.route('/hello/', methods=['GET', 'POST'])
 @cross_origin()
 def hello_world():
@@ -65,7 +70,6 @@ def image_classifier():
     images = np.array(images)
 
     data = json.dumps({"signature_name": "serving_default", "instances": images.tolist()})
-    print('Data: {} ... {}'.format(data[:50], data[len(data)-52:]))
 
     # # Creating payload for TensorFlow serving request
     payload = {
@@ -76,11 +80,11 @@ def image_classifier():
     # # Making POST request
     json_response = requests.post('http://localhost:8501/v1/models/saved_model:predict', data=data, headers=headers)
 
-    print(json.loads(json_response.text))
-
     predictions = json.loads(json_response.text)['predictions']
 
     # # Returning JSON response to the frontend
     return jsonify(predictions)
     return 'Hello, World!'
     
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=os.environ['PORT'])

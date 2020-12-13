@@ -5,5 +5,5 @@
 #### 3. Activate `` animal-recognition `` conda environment.
 #### 4. Open ``model-training.ipynb`` in juputer notebook.
 #### 5. Train model and save it for serving
-#### 6. Serve application by executing ``bash serve-backend.sh``
+#### 6. Serve application backend by executing ``bash serve-backend.sh``
 #### 7. Serve frontend by running ``npm install`` and ``npm start`` inside ``animal-recognition-frontend`` folder

@@ -1,0 +1,11 @@
+/.ipynb_checkpoints
+/training-data
+/envs
+/animal-recognition-checkpoint
+animal-recognition.h5
+model-training.ipynb
+README.md
+__pycache__
+
+animal-recognition-frontend/node_modules
+animal-recognition-frontend/build

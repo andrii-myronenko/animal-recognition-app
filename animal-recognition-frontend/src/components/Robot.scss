@@ -1,0 +1,223 @@
+.robot-container {
+    width: 400px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+@media only screen   
+and (max-width : 1440px)  {
+    .robot-container {
+        display: none;
+    }
+}
+
+.face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 150px;
+    margin: auto;
+    height: 40px;
+    width: 65px;
+    z-index: 1;
+    background: #5e6061;
+    border: 3px solid #333838;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.head {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 150px;
+    margin: auto;
+    height: 75px;
+    width: 100px;
+    z-index: 0;
+    background: #3f9ae6;
+    border-radius: 10px;
+}
+
+.body {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 120px;
+    width: 115px;
+    background: #3f9ae6;
+    border-radius: 20px;
+}
+
+.left-hand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 165px;
+    bottom: -50px;
+    margin: auto;
+    height: 30px;
+    width: 100px;
+    background: #3f9ae6;
+    border-radius: 40px;
+    transform: rotateZ(270deg);
+}
+
+.right-hand {
+    position: absolute;
+    top: -70px;
+    left: 190px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 30px;
+    width: 100px;
+    background: #3f9ae6;
+    border-radius: 40px;
+    animation: hand 3s ease-in-out infinite;
+    transform: rotateZ(90deg)
+}
+
+.robot-container-uploading {
+    .right-hand {
+        animation: none;
+        top: 40px;
+        left: 165px;
+    }
+}
+
+.robot-container-result {
+    .right-hand {
+        animation: none;
+        top: 40px;
+        left: 165px;
+    }
+}
+
+@keyframes hand {
+    0% {
+        transform: translateY(-20px) rotateZ(-75deg);
+    }
+    50% {
+        transform: translateY(0px) rotateZ(-45deg);
+    }
+    100% {
+        transform: translateY(-20px) rotateZ(-75deg);
+    }
+}
+
+.eye1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 25px;
+    bottom: 150px;
+    margin: auto;
+    height: 10px;
+    z-index: 2;
+    width: 15px;
+    background: #29b6f7;
+    border-radius: 10px;
+    animation: blink 5s infinite;
+}
+
+.eye2 {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    right: 0;
+    bottom: 150px;
+    margin: auto;
+    height: 10px;
+    width: 15px;
+    z-index: 2;
+    background: #29b6f7;
+    border-radius: 10px;
+    animation: blink 5s infinite;
+}
+
+.robot-container-uploading {
+    .eye1 {
+        background: red;
+    }
+
+    .eye2 {
+        background: red;
+    }
+}
+
+.leg1 {
+    position: absolute;
+    top: 310px;
+    left: -65px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 120px;
+    width: 40px;
+    background: #3f9ae6;
+    border-radius: 20px;
+}
+
+.leg2 {
+    position: absolute;
+    top: 310px;
+    left: 65px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 120px;
+    width: 40px;
+    background: #3f9ae6;
+    border-radius: 20px;
+}
+
+@keyframes blink {
+    0% {
+        height: 10px;
+    }
+    5% {
+        height: 6px;
+    }
+    10% {
+        height: 1px;
+    }
+    15% {
+        height: 6px;
+    }
+    20% {
+        height: 10px;
+    }
+}
+
+.cloud {
+    position: absolute;
+    right: -160px;
+    top: -150px;
+}
+
+.cloud-image {
+    height: 150px;
+}
+
+.cloud-text {
+    position: absolute;
+    width: 120px;
+    top: 28px;
+    left: 20px;
+    text-align: center;
+}
+
+.santa-hat {
+    width: 130px;
+    top: -110px;
+    position: absolute;
+    right: -20px;
+}
