@@ -1,6 +1,6 @@
 # Website "Animal Recognition"
 
-## [Link to website](https://animal-rights.herokuapp.com/)
+## [Link to website](https://animal-recognition-app.herokuapp.com/)
 
 #### Project description
 
